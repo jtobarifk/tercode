@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="jquery.mobile-1.2.0.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+        <script src="jquery.js">
+            </script>
+		<script src="jquery.mobile-1.2.0.min.js">
+            </script>
+		<script src="jquery.mobile.subpage.js">
+            </script>
+        <script type="text/javascript" src="cordova-2.7.0.js"></script>
+        
+        <script type="text/javascript" src="js/index.js"></script>
+        <style>
+			#logo_image {
+                text-align: center;
+                margin-left:0 auto;
+                margin-right:0 auto;
+			}
+            
+            </style>
+    </head>
+    <body>
+        <!-- Home -->
+        <div data-role="page" id="page1" data-theme="d">
+            <div data-theme="d" data-role="header" data-position="fixed">
+				<a href="index.html"  class="ui-btn-left" onclick="salir()">Salir</a>
+                <h3>
+                    Rapid Food
+                </h3>
+				<a href="index.html" data-icon="gear" class="ui-btn-right" onclick="carga_datos()" data-iconpos="notext" data-role="button"></a>
+			</div>
+			<div data-role="content" data-theme="d"  data-fullscreen="true">
+				<div id="logo_image">
+					<p>
+                    <img src="images/logo.png" align="center" />
+					</p>
+					<h1>&nbsp;</h1>
+					<h2>Pedidos Comida R&aacute;pida</h2>
+					<h4>Beta 0.1</h4>
+				</div>
+			</div>
+			<div data-theme="a" data-role="footer" data-position="fixed">
+				<div data-role="navbar" id="nav1" data-ajax="false">
+					<ul>
+						<li><a href="#nuevo" data-transition="slidefade" >Nuevo Pedido</a></li>
+						<li><a href="#pedidos"  data-transition="slidefade">Mis Pedidos</a></li>
+					</ul>
+				</div>
+			</div>
+            <div data-role="subpage" id="nuevo" >
+                <div data-theme="d" data-role="header" data-position="fixed">
+                    <a href="index.html" data-icon="home" class="ui-btn-left" data-role="button" data-iconpos="notext">Inicio</a>
+                    <h3 id="titulo">
+                        Nuevo Pedido
+                    </h3>
+                    <a href="index.html" data-icon="back" class="ui-btn-right" onclick="back()" data-role="button" data-iconpos="notext">Volver</a>
+                </div>
+                <form name="form-pedido" id="form-pedido"  action="" method="post">
+                    <div data-role="content" id="familiasJ">
+                        <div data-role="fieldcontain">
+                            <label for="name">Nombre:</label>
+                            <input type="text" name="name" id="name" value="Juan Jose Tobar" disabled data-mini="true"/>
+                            <input type="hidden" name="idpedido" id="idpedido" value="" />
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="producto" class="select">Elija su Orden:</label>
+                            <select name="producto" id="producto" data-mini="true">
+                                <option value="italiano">Completo Italiano</option>
+                                <option value="palta-mayo">Lomito Palta Mayo</option>
+                                <option value="papas-fritas">Papas Fritas</option>
+                            </select>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="minutos">Retiro en :</label>
+                            <input type="range" name="minutos" id="minutos" value="60" min="20" max="60" data-mini="true" /> min.
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="observaciones">Observaciones:</label>
+                            <textarea cols="40" rows="8" name="observaciones" id="observaciones" required data-mini="true"></textarea>
+                        </div>
+                        <div class="ui-body ui-body-b">
+                            <fieldset class="ui-grid-a">
+								<div class="ui-block-a"><button type="submit" data-theme="d" data-mini="true">Cancelar</button></div>
+								<div class="ui-block-b"><button type="submit" data-theme="a" data-mini="true">Enviar</button></div>
+                            </fieldset>
+                        </div>
+   
+                        <div data-theme="a" data-role="footer" data-position="fixed">
+                            <div data-role="navbar">
+                                <ul>
+                                    <li><a href="#nuevo" data-transition="slidefade" >Nuevo Pedido</a></li>
+                                    <li><a href="#pedidos"  data-transition="slidefade">Mis Pedidos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+            
+            <!-- Fin Natural -->
+            <!-- Foods -->
+            <div data-role="subpage" id="pedidos" >
+                <div data-theme="d" data-role="header" data-position="fixed">
+                    <a href="index.html" data-icon="home" class="ui-btn-left" data-role="button" data-iconpos="notext">Inicio</a>
+                    <h3>
+                        Mis Pedidos
+                    </h3>
+                    <a href="index.html" data-icon="back" class="ui-btn-right" onclick="back()" data-role="button" data-iconpos="notext">Volver</a>
+                </div>
+                <div data-role="content" id="listado_pedidos">
+                    <ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="d">
+                        <li>prueba</li>
+                    </ul>
+                        <div data-theme="a" data-role="footer" data-position="fixed">
+                            <div data-role="navbar">
+                                <ul>
+                                    <li><a href="#nuevo" data-transition="slidefade" >Nuevo Pedido</a></li>
+                                    <li><a href="#pedidos"  data-transition="slidefade">Mis Pedidos</a></li>
+                                </ul>
+                            </div>
+                        </div>	
+    
+                    
+                </div>
+          </div>               
+
+    </body>
+</html>
